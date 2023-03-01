@@ -103,13 +103,13 @@ public static class IrcParser
             do
             {
                 int delimiterIndex = remainingParametersSpan.IndexOf(' ');
-                if (delimiterIndex == -1)
-                {
-                    parameterSpan = remainingParametersSpan;
-                }
-                else if (remainingParametersSpan[0] == ':')
+                if (remainingParametersSpan[0] == ':')
                 {
                     parameterSpan = remainingParametersSpan = remainingParametersSpan[1..];
+                }
+                else if (delimiterIndex == -1)
+                {
+                    parameterSpan = remainingParametersSpan;
                 }
                 else
                 {
